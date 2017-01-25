@@ -1,0 +1,36 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:View="clr-namespace:View" x:Class="WpfTutorialSamples.Common_interface_controls.MenuSample"
+        Title="Pretty Hair" Height="239.9" Width="598.4">
+    <DockPanel>
+        <TabControl x:Name="tabControl" Height="357" VerticalAlignment="Top" Width="586">
+            <TabItem Header="Check Inventory&#xA;" Margin="1.2,0,-5.2,-2">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="checkInventoryBox" Margin="20" ItemsSource="{Binding checkOrders}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" >
+                                      
+                                    </TextBlock>
+                                    <TextBlock Text="{Binding Age}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.DataContext>
+                            <View:MyViewModel/>
+                        </ListBox.DataContext>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="View Product Types" Margin="1.2,0,-5.2,-2">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>
